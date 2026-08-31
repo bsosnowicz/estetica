@@ -1,0 +1,139 @@
+backend:
+  name: github
+  repo: bsosnowicz/estetica
+  branch: main
+  base_url: https://sveltia-cms-auth.bartek-sosnowicz.workers.dev
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "salon"
+    label: "Treść strony"
+    files:
+      - file: "src/content/salon.json"
+        label: "Zawartość salonu"
+        name: "salon"
+        fields:
+          - label: "Dane firmy"
+            name: "business"
+            widget: "object"
+            fields:
+              - { label: "Nazwa", name: "name", widget: "string" }
+              - { label: "Pełna nazwa", name: "fullName", widget: "string" }
+              - { label: "Tagline", name: "tagline", widget: "string" }
+              - label: "Dyscypliny"
+                name: "disciplines"
+                widget: "list"
+                field: { label: "Pozycja", name: "value", widget: "string" }
+              - { label: "Rok założenia", name: "since", widget: "number", value_type: "int" }
+              - { label: "Lata na rynku", name: "years", widget: "number", value_type: "int" }
+              - { label: "Średnia ocena", name: "rating", widget: "number", value_type: "float", step: 0.1 }
+              - { label: "Liczba opinii", name: "reviews", widget: "number", value_type: "int" }
+              - label: "Właścicielka"
+                name: "owner"
+                widget: "object"
+                fields:
+                  - { label: "Imię i nazwisko", name: "name", widget: "string" }
+                  - { label: "Tytuł", name: "title", widget: "string" }
+                  - { label: "Lata doświadczenia", name: "experienceYears", widget: "number", value_type: "int" }
+              - label: "Adres"
+                name: "address"
+                widget: "object"
+                fields:
+                  - { label: "Ulica", name: "street", widget: "string" }
+                  - { label: "Kod pocztowy", name: "postal", widget: "string" }
+                  - { label: "Miasto", name: "city", widget: "string" }
+              - label: "Godziny otwarcia (tekst)"
+                name: "hours"
+                widget: "string"
+                hint: "PLACEHOLDER — Booksy potwierdza tylko dzisiejsze 08:00–20:00. Zweryfikować pełny tydzień."
+              - label: "Godziny otwarcia — wiersze tabeli"
+                name: "hoursRows"
+                widget: "list"
+                summary: "{{fields.day}} — {{fields.time}}"
+                fields:
+                  - { label: "Dzień", name: "day", widget: "string" }
+                  - { label: "Godziny", name: "time", widget: "string" }
+              - label: "Telefon"
+                name: "phone"
+                widget: "string"
+                hint: "PLACEHOLDER — wpisać prawdziwy numer telefonu przed publikacją."
+              - label: "NIP"
+                name: "nip"
+                widget: "string"
+                hint: "PLACEHOLDER — uzupełnić dane rejestrowe (NIP) przed publikacją."
+              - label: "Linki"
+                name: "links"
+                widget: "object"
+                fields:
+                  - { label: "Rezerwacja (Booksy)", name: "booking", widget: "string" }
+                  - { label: "Strona WWW", name: "website", widget: "string" }
+                  - { label: "Instagram", name: "instagram", widget: "string" }
+                  - { label: "Facebook", name: "facebook", widget: "string" }
+          - label: "O nas — akapity"
+            name: "aboutParagraphs"
+            widget: "list"
+            field: { label: "Akapit", name: "paragraph", widget: "text" }
+          - label: "Statystyki (liczby na stronie)"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.value}} — {{fields.label}}"
+            fields:
+              - { label: "Wartość", name: "value", widget: "string" }
+              - { label: "Etykieta", name: "label", widget: "string" }
+              - { label: "Podpis", name: "sub", widget: "string" }
+          - label: "Udogodnienia"
+            name: "amenities"
+            widget: "list"
+            field: { label: "Udogodnienie", name: "value", widget: "string" }
+          - label: "Kategorie usług"
+            name: "serviceCategories"
+            widget: "list"
+            summary: "{{fields.index}} — {{fields.title}}"
+            fields:
+              - { label: "ID (kotwica URL)", name: "id", widget: "string" }
+              - { label: "Numer porządkowy", name: "index", widget: "string" }
+              - { label: "Tytuł", name: "title", widget: "string" }
+              - { label: "Opis (blurb)", name: "blurb", widget: "text" }
+              - { label: "Zdjęcie", name: "image", widget: "image" }
+              - label: "Pozycje cennika"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.name}} — {{fields.price}}"
+                fields:
+                  - { label: "Nazwa zabiegu", name: "name", widget: "string" }
+                  - { label: "Cena", name: "price", widget: "string", hint: "Wartość tekstowa, np. „140 zł”, „od 350 zł”, „200–210 zł”, „bezpłatna”." }
+          - label: "Zespół"
+            name: "team"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Imię i nazwisko", name: "name", widget: "string" }
+              - label: "Rola / specjalizacja"
+                name: "role"
+                widget: "string"
+                hint: "PLACEHOLDER — brief podaje tylko imiona, role do potwierdzenia."
+              - { label: "Zdjęcie", name: "image", widget: "image" }
+          - label: "Opinie klientek"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Imię", name: "name", widget: "string" }
+              - { label: "Treść opinii", name: "quote", widget: "text" }
+          - label: "Galeria / realizacje"
+            name: "gallery"
+            widget: "list"
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Zdjęcie", name: "src", widget: "image" }
+              - { label: "Opis alternatywny (alt)", name: "alt", widget: "string" }
+          - { label: "Zdjęcie główne (hero)", name: "heroImage", widget: "image" }
+          - label: "Menu nawigacji"
+            name: "navLinks"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Kotwica (#sekcja)", name: "href", widget: "string" }
+              - { label: "Etykieta", name: "label", widget: "string" }
