@@ -1,13 +1,24 @@
 {
   "business": {
+    "disciplines": [
+      "Kosmetologia",
+      "Medycyna estetyczna",
+      "SPA"
+    ],
+    "hoursRows": [
+      {
+        "day": "Poniedziałek – Sobota",
+        "time": "08:00 – 20:00"
+      },
+      {
+        "day": "Niedziela",
+        "time": "Nieczynne"
+      }
+    ],
     "name": "Estetica",
-    "fullName": "Estetica — Strefa Piękna i Relaksu",
+    "phone": "+48 000 000 000",
     "tagline": "Strefa piękna i relaksu w Katowicach",
-    "disciplines": ["Kosmetologia", "Medycyna estetyczna", "SPA"],
-    "since": 2013,
-    "years": 10,
-    "rating": 4.9,
-    "reviews": 524,
+    "hours": "Pon.–Sob. 08:00–20:00 · Niedziela nieczynne",
     "owner": {
       "name": "Magdalena Zając",
       "title": "Właścicielka · mgr kosmetologii",
@@ -18,38 +29,20 @@
       "postal": "40-615",
       "city": "Katowice"
     },
-    "hours": "Pon.–Sob. 08:00–20:00 · Niedziela nieczynne",
-    "hoursRows": [
-      { "day": "Poniedziałek – Sobota", "time": "08:00 – 20:00" },
-      { "day": "Niedziela", "time": "Nieczynne" }
-    ],
-    "phone": "+48 000 000 000",
     "nip": "000-000-00-00",
+    "years": 10,
     "links": {
       "booking": "https://booksy.com/pl-pl/92436_estetica-strefa-piekna-i-relaksu_salon-kosmetyczny_11597_katowice",
       "website": "https://esteticakatowice.pl",
       "instagram": "https://instagram.com/esteticakatowice",
       "facebook": "https://facebook.com/MobilneStudioUrodyEsteticaMagdalenaZajac"
-    }
+    },
+    "fullName": "Estetica — Strefa Piękna i Relaksu",
+    "since": 2013,
+    "reviews": 524,
+    "rating": 4.9
   },
-  "aboutParagraphs": [
-    "Od 2013 roku tworzymy w Katowicach miejsce, w którym profesjonalna pielęgnacja spotyka się z prawdziwym relaksem. Estetica to salon kosmetyczny z pełną ofertą SPA — zabiegi na twarz i ciało wykonujemy na kosmetykach w 100% naturalnych, z dbałością o efekt i o Twój komfort.",
-    "Salonem kieruje Magdalena Zając — dyplomowana magister kosmetologii z 16-letnim stażem. Pod jej okiem zespół specjalistek łączy wiedzę, technologię i wyczucie estetyki: od bezinwazyjnego liftingu KOBIDO, przez medycynę estetyczną i depilację laserową, po ceremonie SPA i saunę Infrared."
-  ],
-  "stats": [
-    { "value": "10", "label": "lat na rynku", "sub": "od 2013" },
-    { "value": "4,9", "label": "średnia ocena", "sub": "524 opinie · Booksy" },
-    { "value": "100%", "label": "naturalne kosmetyki", "sub": "twarz i ciało" },
-    { "value": "23", "label": "kategorie zabiegów", "sub": "ponad 200 pozycji" }
-  ],
-  "amenities": [
-    "Parking dla klientek",
-    "Program lojalnościowy",
-    "Karty podarunkowe",
-    "Pakiety usług",
-    "Noc w SPA dla dwojga",
-    "Sauna Infrared"
-  ],
+  "heroImage": "/images/gallery-1.jpeg",
   "serviceCategories": [
     {
       "id": "paznokcie",
@@ -58,11 +51,26 @@
       "blurb": "Manicure, pedicure i stylizacja z dbałością o każdy detal — trwałe wykończenie i zadbane dłonie.",
       "image": "/images/service-1.jpeg",
       "items": [
-        { "name": "Manicure hybrydowy (proteinowy)", "price": "140 zł" },
-        { "name": "Manicure tytanowy", "price": "150 zł" },
-        { "name": "Żele przedłużane na szablonie", "price": "190 zł" },
-        { "name": "Pedicure hybrydowy", "price": "180 zł" },
-        { "name": "Pedicure klasyczny + rytuał pielęgnacyjny stóp", "price": "200–210 zł" }
+        {
+          "name": "Manicure hybrydowy (proteinowy)",
+          "price": "2000000 zł"
+        },
+        {
+          "name": "Manicure tytanowy",
+          "price": "150 zł"
+        },
+        {
+          "name": "Żele przedłużane na szablonie",
+          "price": "190 zł"
+        },
+        {
+          "name": "Pedicure hybrydowy",
+          "price": "180 zł"
+        },
+        {
+          "name": "Pedicure klasyczny + rytuał pielęgnacyjny stóp",
+          "price": "200–210 zł"
+        }
       ]
     },
     {
@@ -72,10 +80,22 @@
       "blurb": "Spojrzenie podkreślone naturalnie — laminacja, henna i przedłużanie dopasowane do rysów twarzy.",
       "image": "/images/service-2.jpeg",
       "items": [
-        { "name": "Henna brwi z regulacją", "price": "65 zł" },
-        { "name": "Laminacja brwi", "price": "130 zł" },
-        { "name": "Lifting i laminacja rzęs", "price": "130 zł" },
-        { "name": "Przedłużanie rzęs 1:1", "price": "180 zł" }
+        {
+          "name": "Henna brwi z regulacją",
+          "price": "65 zł"
+        },
+        {
+          "name": "Laminacja brwi",
+          "price": "130 zł"
+        },
+        {
+          "name": "Lifting i laminacja rzęs",
+          "price": "130 zł"
+        },
+        {
+          "name": "Przedłużanie rzęs 1:1",
+          "price": "180 zł"
+        }
       ]
     },
     {
@@ -85,11 +105,26 @@
       "blurb": "Rytuały na twarz dobrane do potrzeb skóry: nawilżanie, odmłodzenie, oczyszczanie i blask.",
       "image": "/images/service-3.jpeg",
       "items": [
-        { "name": "ORGANIC SERIES (nawilżanie, anti-aging, trądzik, przebarwienia)", "price": "210–270 zł" },
-        { "name": "Oczyszczanie wodorowe", "price": "od 240 zł" },
-        { "name": "Mikrodermabrazja diamentowa", "price": "230–290 zł" },
-        { "name": "Peelingi chemiczne / kwasy (migdałowy, AHA, glikolowy)", "price": "169 zł" },
-        { "name": "Geneo — rozświetlający / anti-aging", "price": "240 zł" }
+        {
+          "name": "ORGANIC SERIES (nawilżanie, anti-aging, trądzik, przebarwienia)",
+          "price": "210–270 zł"
+        },
+        {
+          "name": "Oczyszczanie wodorowe",
+          "price": "od 240 zł"
+        },
+        {
+          "name": "Mikrodermabrazja diamentowa",
+          "price": "230–290 zł"
+        },
+        {
+          "name": "Peelingi chemiczne / kwasy (migdałowy, AHA, glikolowy)",
+          "price": "169 zł"
+        },
+        {
+          "name": "Geneo — rozświetlający / anti-aging",
+          "price": "240 zł"
+        }
       ]
     },
     {
@@ -99,11 +134,26 @@
       "blurb": "Nowoczesne protokoły dla wyraźnych, a jednocześnie naturalnych efektów odmłodzenia.",
       "image": "/images/service-4.jpeg",
       "items": [
-        { "name": "Mezoterapia mikroigłowa (Dermapen)", "price": "od 350 zł" },
-        { "name": "Mezoterapia igłowa (Filorga, Cytocare)", "price": "od 350 zł" },
-        { "name": "Stymulatory tkankowe (Profhilo, Ejal 40, Fillagen)", "price": "600–1000 zł" },
-        { "name": "Makijaż permanentny (brwi / usta)", "price": "700 / 900 zł" },
-        { "name": "BTX (1–4 okolice)", "price": "400–1250 zł" }
+        {
+          "name": "Mezoterapia mikroigłowa (Dermapen)",
+          "price": "od 350 zł"
+        },
+        {
+          "name": "Mezoterapia igłowa (Filorga, Cytocare)",
+          "price": "od 350 zł"
+        },
+        {
+          "name": "Stymulatory tkankowe (Profhilo, Ejal 40, Fillagen)",
+          "price": "600–1000 zł"
+        },
+        {
+          "name": "Makijaż permanentny (brwi / usta)",
+          "price": "700 / 900 zł"
+        },
+        {
+          "name": "BTX (1–4 okolice)",
+          "price": "400–1250 zł"
+        }
       ]
     },
     {
@@ -113,11 +163,26 @@
       "blurb": "Gładka skóra bez kompromisów — laser diodowy i bezpłatna konsultacja przed serią zabiegów.",
       "image": "/images/service-5.jpeg",
       "items": [
-        { "name": "Wąsik", "price": "130 zł" },
-        { "name": "Pachy", "price": "120 zł" },
-        { "name": "Bikini brazylijskie", "price": "250 zł" },
-        { "name": "Całe nogi", "price": "480 zł" },
-        { "name": "Konsultacja", "price": "bezpłatna" }
+        {
+          "name": "Wąsik",
+          "price": "130 zł"
+        },
+        {
+          "name": "Pachy",
+          "price": "120 zł"
+        },
+        {
+          "name": "Bikini brazylijskie",
+          "price": "250 zł"
+        },
+        {
+          "name": "Całe nogi",
+          "price": "480 zł"
+        },
+        {
+          "name": "Konsultacja",
+          "price": "bezpłatna"
+        }
       ]
     },
     {
@@ -127,10 +192,22 @@
       "blurb": "Ceremonie ciała, masaże i sauna Infrared — chwila wyciszenia tylko dla Ciebie. Masaże ciała wyłącznie dla Pań.",
       "image": "/images/gallery-3.jpeg",
       "items": [
-        { "name": "Masaż relaksacyjny ciała (~50 min)", "price": "200 zł" },
-        { "name": "KOBIDO — japoński lifting twarzy", "price": "od 220 zł" },
-        { "name": "Masaż ciepłym masłem Shea / aromaterapeutyczny", "price": "200 zł" },
-        { "name": "Sauna Infrared · Noc w SPA dla dwojga", "price": "voucher" }
+        {
+          "name": "Masaż relaksacyjny ciała (~50 min)",
+          "price": "200 zł"
+        },
+        {
+          "name": "KOBIDO — japoński lifting twarzy",
+          "price": "od 220 zł"
+        },
+        {
+          "name": "Masaż ciepłym masłem Shea / aromaterapeutyczny",
+          "price": "200 zł"
+        },
+        {
+          "name": "Sauna Infrared · Noc w SPA dla dwojga",
+          "price": "voucher"
+        }
       ]
     },
     {
@@ -140,41 +217,155 @@
       "blurb": "Ujędrnienie, modelowanie sylwetki i redukcja cellulitu dzięki technologii LPG.",
       "image": "/images/gallery-5.jpeg",
       "items": [
-        { "name": "Pojedynczy zabieg", "price": "160–220 zł" },
-        { "name": "Pakiet 10 zabiegów", "price": "1400–2000 zł" }
+        {
+          "name": "Pojedynczy zabieg",
+          "price": "160–220 zł"
+        },
+        {
+          "name": "Pakiet 10 zabiegów",
+          "price": "1400–2000 zł"
+        }
       ]
     }
   ],
-  "team": [
-    { "name": "Magdalena Zając", "role": "Właścicielka · Kosmetolog", "image": "/images/team-magdalena.jpeg" },
-    { "name": "Klaudia", "role": "Stylistka paznokci", "image": "/images/team-klaudia.jpeg" },
-    { "name": "Krystyna Vasylenko", "role": "Kosmetolog", "image": "/images/team-krystyna.jpeg" },
-    { "name": "Olesja Shapovalova", "role": "Specjalistka SPA i masażu", "image": "/images/team-olesja.jpeg" },
-    { "name": "Angelika Moik", "role": "Stylistka rzęs i brwi", "image": "/images/team-angelika.jpeg" },
-    { "name": "Wiktoria Kruszyńska", "role": "Kosmetolog", "image": "/images/team-wiktoria.jpeg" }
-  ],
-  "testimonials": [
-    { "name": "Nikola", "quote": "Najlepszy salon." },
-    { "name": "Daria", "quote": "Profesjonalnie i sympatycznie." },
-    { "name": "Martyna", "quote": "Świetnie! Gorąco polecam. Skórki i kształt paznokci — pierwsza klasa." },
-    { "name": "Ania", "quote": "Pani stylistka ma bardzo dużą wiedzę, dba o paznokcie. Polecam." },
-    { "name": "Marzena", "quote": "Jestem bardzo zadowolona, plecy odżyły." }
+  "aboutParagraphs": [
+    "Od 2013 roku tworzymy w Katowicach miejsce, w którym profesjonalna pielęgnacja spotyka się z prawdziwym relaksem. Estetica to salon kosmetyczny z pełną ofertą SPA — zabiegi na twarz i ciało wykonujemy na kosmetykach w 100% naturalnych, z dbałością o efekt i o Twój komfort.",
+    "Salonem kieruje Magdalena Zając — dyplomowana magister kosmetologii z 16-letnim stażem. Pod jej okiem zespół specjalistek łączy wiedzę, technologię i wyczucie estetyki: od bezinwazyjnego liftingu KOBIDO, przez medycynę estetyczną i depilację laserową, po ceremonie SPA i saunę Infrared."
   ],
   "gallery": [
-    { "src": "/images/gallery-1.jpeg", "alt": "Wnętrze i realizacje salonu Estetica" },
-    { "src": "/images/gallery-2.jpeg", "alt": "Zabieg pielęgnacyjny w salonie Estetica" },
-    { "src": "/images/gallery-4.jpeg", "alt": "Strefa relaksu i SPA w salonie Estetica" },
-    { "src": "/images/service-1.jpeg", "alt": "Stylizacja paznokci — realizacja Estetica" },
-    { "src": "/images/gallery-3.jpeg", "alt": "Ceremonia SPA w salonie Estetica" },
-    { "src": "/images/service-2.jpeg", "alt": "Stylizacja brwi i rzęs — realizacja Estetica" }
+    {
+      "src": "/images/gallery-1.jpeg",
+      "alt": "Wnętrze i realizacje salonu Estetica"
+    },
+    {
+      "src": "/images/gallery-2.jpeg",
+      "alt": "Zabieg pielęgnacyjny w salonie Estetica"
+    },
+    {
+      "src": "/images/gallery-4.jpeg",
+      "alt": "Strefa relaksu i SPA w salonie Estetica"
+    },
+    {
+      "src": "/images/service-1.jpeg",
+      "alt": "Stylizacja paznokci — realizacja Estetica"
+    },
+    {
+      "src": "/images/gallery-3.jpeg",
+      "alt": "Ceremonia SPA w salonie Estetica"
+    },
+    {
+      "src": "/images/service-2.jpeg",
+      "alt": "Stylizacja brwi i rzęs — realizacja Estetica"
+    }
   ],
-  "heroImage": "/images/hero.jpeg",
+  "testimonials": [
+    {
+      "name": "Nikola",
+      "quote": "Najlepszy salon."
+    },
+    {
+      "name": "Daria",
+      "quote": "Profesjonalnie i sympatycznie."
+    },
+    {
+      "name": "Martyna",
+      "quote": "Świetnie! Gorąco polecam. Skórki i kształt paznokci — pierwsza klasa."
+    },
+    {
+      "name": "Ania",
+      "quote": "Pani stylistka ma bardzo dużą wiedzę, dba o paznokcie. Polecam."
+    },
+    {
+      "name": "Marzena",
+      "quote": "Jestem bardzo zadowolona, plecy odżyły."
+    }
+  ],
   "navLinks": [
-    { "href": "#o-nas", "label": "O nas" },
-    { "href": "#uslugi", "label": "Usługi" },
-    { "href": "#realizacje", "label": "Realizacje" },
-    { "href": "#zespol", "label": "Zespół" },
-    { "href": "#opinie", "label": "Opinie" },
-    { "href": "#kontakt", "label": "Kontakt" }
+    {
+      "href": "#o-nas",
+      "label": "O nas"
+    },
+    {
+      "href": "#uslugi",
+      "label": "Usługi"
+    },
+    {
+      "href": "#realizacje",
+      "label": "Realizacje"
+    },
+    {
+      "href": "#zespol",
+      "label": "Zespół"
+    },
+    {
+      "href": "#opinie",
+      "label": "Opinie"
+    },
+    {
+      "href": "#kontakt",
+      "label": "Kontakt"
+    }
+  ],
+  "amenities": [
+    "Parking dla klientek",
+    "Program lojalnościowy",
+    "Karty podarunkowe",
+    "Pakiety usług",
+    "Noc w SPA dla dwojga",
+    "Sauna Infrared"
+  ],
+  "team": [
+    {
+      "name": "Magdalena Zając",
+      "role": "Właścicielka · Kosmetolog",
+      "image": "/images/team-magdalena.jpeg"
+    },
+    {
+      "name": "Klaudia",
+      "role": "Stylistka paznokci",
+      "image": "/images/team-klaudia.jpeg"
+    },
+    {
+      "name": "Krystyna Vasylenko",
+      "role": "Kosmetolog",
+      "image": "/images/team-krystyna.jpeg"
+    },
+    {
+      "name": "Olesja Shapovalova",
+      "role": "Specjalistka SPA i masażu",
+      "image": "/images/team-olesja.jpeg"
+    },
+    {
+      "name": "Angelika Moik",
+      "role": "Stylistka rzęs i brwi",
+      "image": "/images/team-angelika.jpeg"
+    },
+    {
+      "name": "Wiktoria Kruszyńska",
+      "role": "Kosmetolog",
+      "image": "/images/team-wiktoria.jpeg"
+    }
+  ],
+  "stats": [
+    {
+      "value": "10",
+      "label": "lat na rynku",
+      "sub": "od 2013"
+    },
+    {
+      "value": "4,9",
+      "label": "średnia ocena",
+      "sub": "524 opinie · Booksy"
+    },
+    {
+      "value": "100%",
+      "label": "naturalne kosmetyki",
+      "sub": "twarz i ciało"
+    },
+    {
+      "value": "23",
+      "label": "kategorie zabiegów",
+      "sub": "ponad 200 pozycji"
+    }
   ]
 }
