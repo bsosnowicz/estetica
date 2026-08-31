@@ -1,3 +1,8 @@
+# When the panel is opened from localhost, Decap talks to the local proxy
+# (`npm run cms`) and writes straight to the files on disk. On a real domain
+# this line is ignored and the `backend` below (GitHub) is used instead.
+local_backend: true
+
 backend:
   name: github
   repo: bsosnowicz/estetica

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "cms": "decap-server",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
@@ -20,6 +21,7 @@
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.1.0",
     "agentation": "^3.0.2",
+    "decap-server": "^3.11.0",
     "oxlint": "^1.79.0",
     "puppeteer-core": "^25.9.0",
     "tailwindcss": "^4.3.3",
