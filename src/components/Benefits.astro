@@ -1,0 +1,50 @@
+---
+import Icon from "./Icon.astro";
+
+const items = [
+  {
+    icon: "leaf",
+    t: "Kosmetyki naturalne",
+    d: "Zabiegi na twarz i ciało w 100% na naturalnych produktach.",
+  },
+  {
+    icon: "star",
+    t: "4,9 ★ na Booksy",
+    d: "524 opinie klientek — zaufanie budowane od 2013 roku.",
+  },
+  {
+    icon: "check",
+    t: "Kosmetolog z dyplomem",
+    d: "Właścicielka — mgr kosmetologii z 16-letnim stażem.",
+  },
+  {
+    icon: "gift",
+    t: "Vouchery i pakiety",
+    d: "Karty podarunkowe, pakiety zabiegów i noc w SPA dla dwojga.",
+  },
+] as const;
+---
+
+<section class="px-4 pt-24 sm:px-6 sm:pt-28">
+  <div
+    class="mx-auto max-w-[1180px] rounded-[2.5rem] bg-forest px-6 py-12 sm:px-12 sm:py-14"
+  >
+    <div class="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        items.map((it, i) => (
+          <div class="reveal" style={`--reveal-delay: ${i * 70}ms`}>
+            <span class="grid h-11 w-11 place-items-center rounded-full bg-sage-mist/12 text-sage-soft">
+              <Icon name={it.icon} class="h-5 w-5" />
+            </span>
+            <h3 class="mt-5 font-cormorant text-2xl font-medium text-sage-mist">
+              {it.t}
+            </h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-sage-mist/65">
+              {it.d}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

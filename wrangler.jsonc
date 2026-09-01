@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "estetica",
+  "compatibility_date": "2025-06-01",
+  // Static-assets-only Worker: no server code, just serves the built site.
+  // Keeps the existing https://estetica.<account>.workers.dev URL.
+  "assets": {
+    "directory": "./dist",
+    // /admin -> 307 /admin/ -> serves dist/admin/index.html
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

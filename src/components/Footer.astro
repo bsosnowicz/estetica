@@ -1,0 +1,106 @@
+---
+import Icon from "./Icon.astro";
+import { business, navLinks } from "../lib/salon";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-forest text-sage-mist">
+  <div class="mx-auto max-w-[1180px] px-5 py-16 sm:px-8">
+    <div class="grid gap-10 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <div
+          class="flex items-center gap-2 font-cormorant text-3xl font-semibold"
+        >
+          <span
+            class="grid h-9 w-9 place-items-center rounded-full bg-sage-mist/12 text-sage-soft"
+          >
+            <Icon name="leaf" class="h-4 w-4" />
+          </span>
+          Estetica
+        </div>
+        <p class="mt-4 max-w-xs text-[14px] leading-relaxed text-sage-mist/60">
+          {business.fullName}. Kosmetologia, medycyna estetyczna i SPA w sercu
+          Katowic.
+        </p>
+        <div class="mt-6 flex gap-2">
+          <a
+            href={business.links.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="grid h-11 w-11 place-items-center rounded-full ring-1 ring-inset ring-sage-mist/20 transition-colors hover:bg-sage-mist hover:text-forest"
+          >
+            <Icon name="instagram" class="h-5 w-5" />
+          </a>
+          <a
+            href={business.links.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            class="grid h-11 w-11 place-items-center rounded-full ring-1 ring-inset ring-sage-mist/20 transition-colors hover:bg-sage-mist hover:text-forest"
+          >
+            <Icon name="facebook" class="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+
+      <div class="md:col-span-3">
+        <div
+          class="text-[12px] font-semibold tracking-wide text-sage-mist/40 uppercase"
+        >
+          Nawigacja
+        </div>
+        <ul class="mt-4 space-y-2.5">
+          {
+            navLinks.map((l) => (
+              <li>
+                <a
+                  href={l.href}
+                  class="text-[14px] text-sage-mist/70 transition-colors hover:text-sage-mist"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="md:col-span-4">
+        <div
+          class="text-[12px] font-semibold tracking-wide text-sage-mist/40 uppercase"
+        >
+          Kontakt
+        </div>
+        <ul class="mt-4 space-y-2.5 text-[14px] text-sage-mist/70">
+          <li>
+            {business.address.street}, {business.address.postal}{" "}
+            {business.address.city}
+          </li>
+          <li>{business.hours}</li>
+          <li>{business.phone}</li>
+          <li>
+            <a
+              href={business.links.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="transition-colors hover:text-sage-mist"
+            >
+              esteticakatowice.pl
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-14 flex flex-col items-start justify-between gap-3 border-t border-sage-mist/12 pt-6 text-[12px] text-sage-mist/45 sm:flex-row sm:items-center"
+    >
+      <span>
+        © {year} {business.fullName}. NIP: {business.nip}.
+      </span>
+      <span class="tracking-wide">Prototyp · dane demonstracyjne</span>
+    </div>
+  </div>
+</footer>

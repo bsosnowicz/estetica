@@ -1,0 +1,49 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Benefits from "../components/Benefits.astro";
+import About from "../components/About.astro";
+import Services from "../components/Services.astro";
+import Gallery from "../components/Gallery.astro";
+import Team from "../components/Team.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Voucher from "../components/Voucher.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import BottomBar from "../components/BottomBar.astro";
+import { Agentation } from "agentation";
+
+const dev = import.meta.env.DEV;
+---
+
+<Base>
+  {/*
+    "Wellness Gold": the wellness layout recoloured into the Editorial Gold
+    palette via the `.skin-gold` scope (see src/styles/global.css).
+  */}
+  <div class="skin-gold">
+    <div class="min-h-screen bg-cream font-sans text-forest antialiased">
+      <Nav />
+      <main>
+        <Hero />
+        <Benefits />
+        <About />
+        <Services />
+        <Gallery />
+        <Team />
+        <Testimonials />
+        <Voucher />
+        <Contact />
+      </main>
+      <Footer />
+      <BottomBar />
+    </div>
+  </div>
+
+  {dev && <Agentation client:only="react" />}
+</Base>
+
+<script>
+  import "../scripts/reveal.ts";
+</script>

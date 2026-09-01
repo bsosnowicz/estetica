@@ -2,7 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
   <title>Panel CMS — Estetica</title>
+  <!-- Absolute path so the config loads whether the panel is opened at
+       /admin or /admin/ (relative resolution would miss it at /admin). -->
+  <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>

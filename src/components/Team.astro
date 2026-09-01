@@ -1,0 +1,46 @@
+---
+import Heading from "./Heading.astro";
+import { team } from "../lib/salon";
+---
+
+<section id="zespol" class="px-4 py-8 sm:px-6">
+  <div
+    class="mx-auto max-w-[1180px] rounded-[3rem] bg-sage-pale px-5 py-20 sm:px-12 sm:py-24"
+  >
+    <div class="flex flex-col items-center gap-5 text-center">
+      <Heading
+        kicker="Zespół"
+        intro="Kosmetolodzy i stylistki z pasją — pod okiem właścicielki, mgr kosmetologii z 16-letnim stażem."
+        align="center"
+      >
+        Specjalistki, którym <span class="italic text-moss">zaufasz.</span>
+      </Heading>
+    </div>
+
+    <div class="mt-14 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
+      {
+        team.map((m, i) => (
+          <figure
+            class="reveal group text-center"
+            style={`--reveal-delay: ${i * 50}ms`}
+          >
+            <div class="relative overflow-hidden rounded-[1.5rem] bg-cream">
+              <img
+                src={m.image}
+                alt={m.name}
+                loading="lazy"
+                class="aspect-[4/5] w-full object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.06]"
+              />
+            </div>
+            <figcaption class="mt-3">
+              <div class="font-cormorant text-xl leading-tight font-medium text-forest">
+                {m.name}
+              </div>
+              <div class="mt-0.5 text-[12px] text-moss">{m.role}</div>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

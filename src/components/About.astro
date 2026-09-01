@@ -1,0 +1,74 @@
+---
+import Heading from "./Heading.astro";
+import { aboutParagraphs, business, gallery, team } from "../lib/salon";
+
+const callouts = [
+  { t: "Rytuały KOBIDO", d: "Bezinwazyjny japoński lifting twarzy." },
+  { t: "Sauna Infrared", d: "Głęboki relaks i regeneracja ciała." },
+  { t: "16 lat doświadczenia", d: "Pod okiem właścicielki-kosmetologa." },
+];
+---
+
+<section id="o-nas" class="px-4 py-24 sm:px-6 sm:py-32">
+  <div
+    class="mx-auto grid max-w-[1180px] items-center gap-14 lg:grid-cols-2 lg:gap-20"
+  >
+    <div>
+      <Heading kicker="O nas">
+        Miejsce, w którym
+        <br />
+        pielęgnacja spotyka
+        <br />
+        <span class="italic text-moss">prawdziwy relaks.</span>
+      </Heading>
+      <div
+        class="reveal mt-7 space-y-5 text-[15.5px] leading-relaxed text-moss"
+      >
+        {aboutParagraphs.map((p) => <p>{p}</p>)}
+      </div>
+      <div class="reveal mt-8 flex items-center gap-4">
+        <img
+          src={team[0].image}
+          alt={business.owner.name}
+          class="h-14 w-14 rounded-full object-cover ring-2 ring-sage-pale"
+          loading="lazy"
+        />
+        <div class="leading-tight">
+          <div class="font-cormorant text-xl font-medium text-forest">
+            {business.owner.name}
+          </div>
+          <div class="text-[12.5px] text-moss">{business.owner.title}</div>
+        </div>
+      </div>
+    </div>
+
+    {/* callout panel */}
+    <div class="reveal">
+      <div class="relative rounded-[2.5rem] bg-sage-pale p-3">
+        <div class="overflow-hidden rounded-[2rem]">
+          <img
+            src={gallery[4].src}
+            alt="Ceremonia SPA w salonie Estetica"
+            class="aspect-[4/5] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <ul class="mt-4 space-y-3">
+        {
+          callouts.map((c) => (
+            <li class="flex items-start gap-4 rounded-2xl bg-white/70 px-5 py-4 ring-1 ring-forest/8">
+              <span class="mt-1.5 h-px w-6 shrink-0 bg-sage" aria-hidden />
+              <div>
+                <div class="font-cormorant text-xl font-medium text-forest">
+                  {c.t}
+                </div>
+                <div class="text-[13px] text-moss">{c.d}</div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

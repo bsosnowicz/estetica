@@ -1,0 +1,44 @@
+---
+import Heading from "./Heading.astro";
+import { gallery } from "../lib/salon";
+
+const rest = [gallery[1], gallery[3], gallery[2], gallery[5]];
+---
+
+<section id="realizacje" class="px-4 py-24 sm:px-6 sm:py-32">
+  <div class="mx-auto max-w-[1180px]">
+    <div class="flex flex-col items-center gap-5 text-center">
+      <Heading kicker="Realizacje" align="center">
+        Efekty, które <span class="italic text-moss">mówią same za siebie.</span>
+      </Heading>
+    </div>
+
+    <div class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:grid-rows-2">
+      <figure
+        class="group relative col-span-2 row-span-2 overflow-hidden rounded-[2rem] reveal"
+      >
+        <img
+          src={gallery[0].src}
+          alt={gallery[0].alt}
+          loading="lazy"
+          class="h-full min-h-[260px] w-full object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.04]"
+        />
+      </figure>
+      {
+        rest.map((g, i) => (
+          <figure
+            class="group relative overflow-hidden rounded-[1.5rem] reveal"
+            style={`--reveal-delay: ${i * 60}ms`}
+          >
+            <img
+              src={g.src}
+              alt={g.alt}
+              loading="lazy"
+              class="aspect-square h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.06]"
+            />
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

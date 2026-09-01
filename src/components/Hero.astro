@@ -1,0 +1,116 @@
+---
+import Icon from "./Icon.astro";
+import Pill from "./Pill.astro";
+import { business, heroImage } from "../lib/salon";
+
+const stats = [
+  { v: `${business.years} lat`, l: "na rynku" },
+  { v: "100%", l: "naturalne kosmetyki" },
+  { v: "23", l: "kategorie zabiegów" },
+];
+---
+
+<section id="top" class="px-4 pt-28 sm:px-6 sm:pt-32">
+  <div
+    class="mx-auto grid max-w-[1180px] items-center gap-8 lg:grid-cols-2 lg:gap-10"
+  >
+    {/* Left */}
+    <div class="lg:pr-6">
+      <div
+        class="reveal inline-flex items-center gap-2 rounded-full bg-sage-pale px-3.5 py-1.5"
+      >
+        <span class="flex text-moss">
+          {
+            Array.from({ length: 5 }).map(() => (
+              <Icon name="star" class="h-3.5 w-3.5" />
+            ))
+          }
+        </span>
+        <span class="text-[12.5px] font-medium text-pine">
+          {business.rating} · {business.reviews} opinii na Booksy
+        </span>
+      </div>
+
+      <h1
+        class="reveal mt-6 font-cormorant text-[clamp(3rem,7vw,5.4rem)] leading-[0.98] font-medium text-forest"
+        style="--reveal-delay: 60ms"
+      >
+        Piękno, które
+        <br />
+        <span class="italic text-moss">pielęgnujesz</span> co dzień.
+      </h1>
+
+      <p
+        class="reveal mt-7 max-w-md text-[16.5px] leading-relaxed text-moss"
+        style="--reveal-delay: 130ms"
+      >
+        Salon kosmetyczny i SPA w Katowicach. Kosmetologia, medycyna
+        estetyczna, masaże i sauna Infrared — na kosmetykach w 100%
+        naturalnych, z dbałością o efekt i o Twój spokój.
+      </p>
+
+      <div
+        class="reveal mt-9 flex flex-wrap items-center gap-3"
+        style="--reveal-delay: 200ms"
+      >
+        <Pill />
+        <a
+          href="#uslugi"
+          class="group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-[14px] font-medium text-forest ring-1 ring-inset ring-forest/25 transition-all duration-300 hover:bg-forest/[0.04] hover:ring-forest/50"
+        >
+          Zobacz ofertę
+          <Icon
+            name="arrow-right"
+            class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+          />
+        </a>
+      </div>
+
+      <div
+        class="reveal mt-10 flex items-center gap-8"
+        style="--reveal-delay: 260ms"
+      >
+        {
+          stats.map((s) => (
+            <div>
+              <div class="font-cormorant text-3xl font-medium whitespace-nowrap text-forest">
+                {s.v}
+              </div>
+              <div class="text-[12.5px] text-moss">{s.l}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    {/* Right image panel */}
+    <div class="reveal relative" style="--reveal-delay: 120ms">
+      <div class="relative rounded-[2.5rem] bg-sage-pale p-3">
+        <div class="overflow-hidden rounded-[2rem]">
+          <img
+            src={heroImage}
+            alt="Salon Estetica — strefa piękna i relaksu w Katowicach"
+            class="aspect-[4/5] w-full object-cover sm:aspect-square"
+            fetchpriority="high"
+          />
+        </div>
+
+        {/* floating chip */}
+        <div
+          class="absolute -bottom-4 left-6 flex items-center gap-3 rounded-2xl bg-forest px-4 py-3 text-sage-mist shadow-xl"
+        >
+          <Icon name="leaf" class="h-5 w-5 text-sage-soft" />
+          <div class="text-[13px] leading-tight">
+            <div class="font-medium">Kosmetyki naturalne</div>
+            <div class="text-sage-mist/60">twarz &amp; ciało</div>
+          </div>
+        </div>
+      </div>
+      {/* soft decorative blob */}
+      <div
+        class="absolute -top-6 -right-4 -z-10 h-40 w-40 rounded-full bg-sage/25 blur-3xl drift"
+      >
+      </div>
+    </div>
+  </div>
+</section>

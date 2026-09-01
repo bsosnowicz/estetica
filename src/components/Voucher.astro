@@ -1,0 +1,51 @@
+---
+import Icon from "./Icon.astro";
+import Pill from "./Pill.astro";
+import { amenities, gallery } from "../lib/salon";
+---
+
+<section class="px-4 pb-24 sm:px-6 sm:pb-32">
+  <div class="mx-auto max-w-[1180px] overflow-hidden rounded-[3rem] bg-forest">
+    <div class="grid items-stretch gap-0 lg:grid-cols-2">
+      <div class="order-2 p-8 sm:p-14 lg:order-1">
+        <span
+          class="inline-flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.18em] text-sage-soft uppercase"
+        >
+          <Icon name="gift" class="h-4 w-4" /> Vouchery &amp; SPA
+        </span>
+        <h2
+          class="mt-5 font-cormorant text-[2.6rem] leading-[1.02] font-medium text-sage-mist sm:text-5xl"
+        >
+          Podaruj chwilę <span class="italic text-sage-soft">relaksu.</span>
+        </h2>
+        <p class="mt-5 max-w-md text-[15.5px] leading-relaxed text-sage-mist/70">
+          Karty podarunkowe, pakiety zabiegów i noc w SPA dla dwojga — z sauną
+          Infrared i ceremoniami na ciało. Elegancki prezent, który zapamiętają.
+        </p>
+        <ul class="mt-8 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
+          {
+            amenities.map((a) => (
+              <li class="flex items-center gap-3 text-[14px] text-sage-mist/85">
+                <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-sage-mist/12 text-sage-soft">
+                  <Icon name="check" class="h-3.5 w-3.5" />
+                </span>
+                {a}
+              </li>
+            ))
+          }
+        </ul>
+        <div class="mt-9">
+          <Pill variant="cream">Zapytaj o voucher</Pill>
+        </div>
+      </div>
+      <div class="order-1 min-h-[280px] lg:order-2">
+        <img
+          src={gallery[2].src}
+          alt="Strefa relaksu i SPA w salonie Estetica"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+---
+import Kicker from "./Kicker.astro";
+
+interface Props {
+  kicker: string;
+  intro?: string;
+  align?: "left" | "center";
+  tone?: "forest" | "cream";
+}
+
+const { kicker, intro, align = "left", tone = "forest" } = Astro.props;
+
+const titleColor = tone === "cream" ? "text-sage-mist" : "text-forest";
+const introColor = tone === "cream" ? "text-sage-mist/70" : "text-moss";
+---
+
+<div
+  class:list={[
+    "reveal flex max-w-2xl flex-col gap-5",
+    align === "center" && "mx-auto items-center text-center",
+  ]}
+>
+  <Kicker>{kicker}</Kicker>
+  <h2
+    class={`font-cormorant text-[2.6rem] leading-[1.02] font-medium sm:text-6xl ${titleColor}`}
+  >
+    <slot />
+  </h2>
+  {intro && <p class={`text-[16px] leading-relaxed ${introColor}`}>{intro}</p>}
+</div>

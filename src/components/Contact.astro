@@ -1,0 +1,115 @@
+---
+import Icon from "./Icon.astro";
+import Pill from "./Pill.astro";
+import Heading from "./Heading.astro";
+import { business, mapsEmbedSrc } from "../lib/salon";
+
+const { address } = business;
+---
+
+<section id="kontakt" class="px-4 pb-24 sm:px-6 sm:pb-32">
+  <div
+    class="mx-auto max-w-[1180px] overflow-hidden rounded-[3rem] bg-sage-mist"
+  >
+    <div class="grid lg:grid-cols-2">
+      <div class="p-8 sm:p-14">
+        <Heading kicker="Kontakt">
+          Zapraszamy <span class="italic text-moss">do Estetiki.</span>
+        </Heading>
+        <dl class="reveal mt-9 space-y-6">
+          <div class="flex gap-4">
+            <span
+              class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-cream text-moss"
+            >
+              <Icon name="pin" class="h-5 w-5" />
+            </span>
+            <div>
+              <dt
+                class="text-[12px] font-semibold tracking-wide text-sage uppercase"
+              >
+                Adres
+              </dt>
+              <dd class="mt-1 text-[15px] text-forest">
+                {address.street}
+                <br />
+                {address.postal} {address.city}
+              </dd>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span
+              class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-cream text-moss"
+            >
+              <Icon name="clock" class="h-5 w-5" />
+            </span>
+            <div class="w-full">
+              <dt
+                class="text-[12px] font-semibold tracking-wide text-sage uppercase"
+              >
+                Godziny
+              </dt>
+              <dd class="mt-1 space-y-0.5 text-[15px] text-forest">
+                {
+                  business.hoursRows.map((h) => (
+                    <div class="flex max-w-xs justify-between gap-6">
+                      <span>{h.day}</span>
+                      <span class="text-moss">{h.time}</span>
+                    </div>
+                  ))
+                }
+              </dd>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span
+              class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-cream text-moss"
+            >
+              <Icon name="phone" class="h-5 w-5" />
+            </span>
+            <div>
+              <dt
+                class="text-[12px] font-semibold tracking-wide text-sage uppercase"
+              >
+                Telefon
+              </dt>
+              <dd class="mt-1 text-[15px] text-forest">{business.phone}</dd>
+            </div>
+          </div>
+        </dl>
+
+        <div class="reveal mt-8 flex flex-wrap items-center gap-3">
+          <Pill />
+          <div class="flex gap-2">
+            <a
+              href={business.links.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              class="grid h-12 w-12 place-items-center rounded-full text-forest ring-1 ring-inset ring-forest/15 transition-colors hover:bg-forest hover:text-sage-mist"
+            >
+              <Icon name="instagram" class="h-5 w-5" />
+            </a>
+            <a
+              href={business.links.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              class="grid h-12 w-12 place-items-center rounded-full text-forest ring-1 ring-inset ring-forest/15 transition-colors hover:bg-forest hover:text-sage-mist"
+            >
+              <Icon name="facebook" class="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="min-h-[320px] lg:min-h-full">
+        <iframe
+          title="Mapa dojazdu — Estetica Katowice"
+          src={mapsEmbedSrc}
+          class="h-full min-h-[320px] w-full"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>

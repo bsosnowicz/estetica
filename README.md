@@ -18,14 +18,23 @@ npm install
 npm run dev
 ```
 
-Vite wskaże adres w terminalu (domyślnie `http://localhost:5173`, a jeśli port jest
-zajęty — kolejny wolny). Build produkcyjny:
+Astro wystartuje na `http://localhost:5173` (port ustawiony w `astro.config.mjs`,
+żeby zgadzał się z `.claude/launch.json`). Build produkcyjny:
 
 ```bash
 npm run build && npm run preview
 ```
 
-**Wymagania:** Node 18+ (testowane na Node 24).
+**Wymagania:** Node 18+ (testowane na Node 22).
+
+### Panel CMS
+
+`http://localhost:5173/admin/` — panel Decap/Sveltia (statyczny, w `public/admin/`).
+Lokalnie treść zapisuje się wprost do plików przez proxy:
+
+```bash
+npm run cms   # decap-server na localhost, backend „local_backend"
+```
 
 ### Agentation (feedback wizualny)
 
@@ -37,8 +46,10 @@ elementy strony i zostawiać adnotacje dla agenta. Widoczny **tylko w `dev`**
 
 ## Stack
 
-- **Vite + React + TypeScript**
-- **Tailwind CSS v4** (przez `@tailwindcss/vite`; tokeny w `src/index.css` → `@theme`)
+- **Astro + TypeScript** — strona renderuje się statycznie, do przeglądarki nie
+  trafia żaden framework runtime (interaktywność to kilka inline'owych `<script>`).
+- **React** — tylko jako dev-only wyspa dla toolbara Agentation (`@astrojs/react`).
+- **Tailwind CSS v4** (przez `@tailwindcss/vite`; tokeny w `src/styles/global.css` → `@theme`)
 - Fonty z **Google Fonts**: Cormorant Garamond, Inter, JetBrains Mono
 - Zero backendu — wszystko statyczne
 
@@ -46,34 +57,42 @@ elementy strony i zostawiać adnotacje dla agenta. Widoczny **tylko w `dev`**
 
 ```
 src/
-  data/salon.ts        # jedno źródło treści (usługi, zespół, opinie, kontakt…)
-  lib/useReveal.ts     # scroll-reveal (IntersectionObserver, respektuje reduced-motion)
-  lib/icons.tsx        # zestaw cienkich ikon line-art
-  versions/V2.tsx      # layout „Wellness" (autorsko w tokenach sage)
-  versions/V3.tsx      # strona finalna: V2 w zakresie `.skin-gold` (kolorystyka złota)
-  App.tsx              # renderuje V3 + Agentation
-public/images/         # zdjęcia salonu (z profilu Booksy)
+  content/salon.json     # jedno źródło treści (edytowane przez /admin)
+  lib/salon.ts           # typowany loader tej treści + wyliczany embed mapy
+  scripts/reveal.ts      # scroll-reveal (IntersectionObserver, respektuje reduced-motion)
+  styles/global.css      # tokeny @theme, warstwa `.skin-gold`, animacje
+  layouts/Base.astro     # <head>: meta, fonty, tytuł
+  components/
+    Icon.astro           # zestaw cienkich ikon line-art (prop `name`)
+    Nav.astro            # nawigacja + menu mobilne (inline script)
+    BottomBar.astro      # „przyklejony" pasek rezerwacji (inline script)
+    Hero / Benefits / About / Services / Gallery / Team /
+    Testimonials / Voucher / Contact / Footer  # sekcje strony
+    Pill / Kicker / Heading.astro              # elementy współdzielone
+  pages/index.astro       # składa całość w zakresie `.skin-gold`
+public/images/            # zdjęcia salonu (z profilu Booksy)
+public/admin/             # panel CMS (Decap/Sveltia)
 ```
 
 > **Kolorystyka:** layout napisany jest w neutralnych tokenach (`forest`, `moss`,
-> `sage…`), a `.skin-gold` w `src/index.css` przemapowuje je na paletę złoto/espresso.
-> Dzięki temu przemalowanie całej strony to jeden blok CSS, bez zmian w markupie.
-> Wersja robocza miała też warianty „Editorial" i „Sage" pod przełącznikiem — na
-> życzenie klienta zostawiono wyłącznie „Gold Wellness".
+> `sage…`), a `.skin-gold` w `src/styles/global.css` przemapowuje je na paletę
+> złoto/espresso. Dzięki temu przemalowanie całej strony to jeden blok CSS, bez
+> zmian w markupie. Wersja robocza miała też warianty „Editorial" i „Sage" pod
+> przełącznikiem — na życzenie klienta zostawiono wyłącznie „Gold Wellness".
 
 ---
 
 ## ⚠️ Do uzupełnienia przed produkcją
 
-Dane niepotwierdzone w briefie są **placeholderami** i oznaczone w kodzie
-komentarzem `// TODO` (patrz `src/data/salon.ts`):
+Dane niepotwierdzone w briefie są **placeholderami** w `src/content/salon.json`
+(hinty w panelu `/admin/` — patrz `public/admin/config.yml`):
 
 - **Godziny otwarcia** — użyto „pon.–sob. 08:00–20:00, niedz. nieczynne".
-  Booksy potwierdza tylko dzisiejsze godziny. → `// TODO: potwierdzić godziny`
-- **Telefon** — `+48 000 000 000` (placeholder). → `// TODO`
-- **Dane rejestrowe (NIP / nazwa firmy)** — placeholder w stopce. → `// TODO`
+  Booksy potwierdza tylko dzisiejsze godziny.
+- **Telefon** — `+48 000 000 000` (placeholder).
+- **Dane rejestrowe (NIP / nazwa firmy)** — placeholder w stopce.
 - **Role / specjalizacje zespołu** — brief podaje tylko imiona; przypisane role są
-  wstępne i wymagają potwierdzenia. → `// TODO`
+  wstępne i wymagają potwierdzenia.
 
 ### Zdjęcia
 
@@ -85,6 +104,6 @@ zdjęcia wnętrza, zabiegów i zespołu).
 ### Rezerwacja i mapa
 
 - Wszystkie CTA „Umów wizytę / Zapytaj o voucher / Pełny cennik" linkują do profilu
-  **Booksy** (`src/data/salon.ts` → `links.booking`).
+  **Booksy** (`src/content/salon.json` → `business.links.booking`).
 - Mapa w sekcji „Kontakt" to osadzony **Google Maps** (embed bez klucza API) na
   podany adres.

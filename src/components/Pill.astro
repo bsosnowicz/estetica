@@ -1,0 +1,36 @@
+---
+import Icon from "./Icon.astro";
+import { business } from "../lib/salon";
+
+interface Props {
+  variant?: "solid" | "outline" | "cream";
+  class?: string;
+  withArrow?: boolean;
+}
+
+const { variant = "solid", class: className = "", withArrow = true } = Astro.props;
+
+const styles = {
+  solid: "bg-forest text-sage-mist hover:bg-pine",
+  outline:
+    "bg-transparent text-forest ring-1 ring-inset ring-forest/30 hover:ring-forest/60 hover:bg-forest/[0.04]",
+  cream: "bg-sage-mist text-forest hover:bg-white",
+}[variant];
+---
+
+<a
+  href={business.links.booking}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={`group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-[14px] font-medium transition-all duration-300 ${styles} ${className}`}
+>
+  <slot>Umów wizytę</slot>
+  {
+    withArrow && (
+      <Icon
+        name="arrow-right"
+        class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+      />
+    )
+  }
+</a>
